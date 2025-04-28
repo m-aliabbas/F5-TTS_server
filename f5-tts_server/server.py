@@ -41,11 +41,11 @@ device = "cuda:0" if torch.cuda.is_available() else "cpu"
 model = F5TTS(
     device=device,
     model_type="F5-TTS",
-    vocab_file=str(cached_path("hf://SWivid/F5-TTS/F5TTS_Base/vocab.txt")),  # Use official vocab file
+    vocab_file=str(cached_path("hf://m-aliabbas1/f5u/models/idk_urdu_n1/final/vocab.txt")),  # Use official vocab file
     ode_method="euler",  # Use euler solver for stability
     use_ema=True,
     vocoder_name="vocos",
-    ckpt_file=str(cached_path("hf://SWivid/F5-TTS/F5TTS_Base/model_1200000.safetensors"))  # Use the base model
+    ckpt_file=str(cached_path("hf://m-aliabbas1/f5u/models/idk_urdu_n1/final/idk_urdu_n1.safetensors"))  # Use the base model
 )
 
 output_dir = 'outputs'
