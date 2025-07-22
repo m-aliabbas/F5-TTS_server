@@ -164,7 +164,7 @@ def transcribe(ref_audio, language=None):
         ref_audio,
         chunk_length_s=30,
         batch_size=128,
-        generate_kwargs={"task": "transcribe", "language": language} if language else {"task": "transcribe"},
+        generate_kwargs={"task": "transcribe", "language": 'en'} if language else {"task": "transcribe"},
         return_timestamps=False,
     )["text"].strip()
 

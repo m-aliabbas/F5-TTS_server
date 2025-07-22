@@ -85,7 +85,7 @@ class F5TTS:
             model_cls, model_cfg, ckpt_file, mel_spec_type, vocab_file, ode_method, use_ema, self.device
         )
 
-    def transcribe(self, ref_audio, language=None):
+    def transcribe(self, ref_audio, language='ur'):
         return transcribe(ref_audio, language)
 
     def export_wav(self, wav, file_wave, remove_silence=False):

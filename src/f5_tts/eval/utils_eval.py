@@ -331,7 +331,7 @@ def run_asr_wer(args):
             hypo = res[0]["text"]
             hypo = zhconv.convert(hypo, "zh-cn")
         elif lang == "en":
-            segments, _ = asr_model.transcribe(gen_wav, beam_size=5, language="en")
+            segments, _ = asr_model.transcribe(gen_wav, beam_size=5, language="ur")
             hypo = ""
             for segment in segments:
                 hypo = hypo + " " + segment.text
