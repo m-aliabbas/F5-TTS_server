@@ -1,5 +1,7 @@
 # F5-TTS Server
 
+## STEP 1
+please install f5 tts base repo first
 F5-TTS Server is a FastAPI application that provides endpoints for text-to-speech conversion and voice cloning. It offers a simple and efficient way to generate natural-sounding speech from text using various voices and accents.
 
 This project is built on top of [F5-TTS](https://github.com/SWivid/F5-TTS), a text-to-speech system that enables high-quality voice synthesis and cloning.
