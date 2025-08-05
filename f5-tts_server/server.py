@@ -40,10 +40,10 @@ device = "cuda:0" if torch.cuda.is_available() else "cpu"
 # Initialize F5-TTS model with English settings
 model = F5TTS(
     device=device,
-    vocab_file=str(cached_path("hf://SWivid/F5-TTS/F5TTS_v1_Base/vocab.txt")),  # Use official vocab file
+    vocab_file=str(cached_path("hf://m-aliabbas1/uv6/vocab.txt")),  # Use official vocab file
     ode_method="euler",  # Use euler solver for stability
     use_ema=True,
-    ckpt_file=str(cached_path("hf://SWivid/F5-TTS/F5TTS_v1_Base/model_1250000.safetensors"))  # Use the base model
+    ckpt_file=str(cached_path("hf://m-aliabbas1/uv6/u_model_m_v6.safetensors"))  # Use the base model
 )
 
 output_dir = 'outputs'
@@ -266,8 +266,8 @@ async def synthesize_speech(
             
             # Transcribe the short clip
             # ref_text = model.transcribe(temp_short_ref)
-            # ref_text = "ٹیکنو کے فونز سستے اور اچھے ہوتے پیں"
-            ref_text = "what you do with that information afterwards this is why i've created this grammar examination study guide i cannot. "
+            ref_text = "ٹیکنو کے فونز سستے اور اچھے ہوتے پیں"
+            # ref_text = "what you do with that information afterwards this is why i've created this grammar examination study guide i cannot. "
             # ref_text = model.transcribe(temp_short_ref)
             logging.info(f'Reference text transcribed from first 14s: {ref_text}')
             
