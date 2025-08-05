@@ -106,7 +106,7 @@ async def base_tts(text: str, speed: Optional[float] = 1.0):
     """
     try:
         # Use the default English voice
-        return await synthesize_speech(text=text, voice="eng_gb", speed=speed)
+        return await synthesize_speech(text=text, voice="ref_actor_female", speed=speed)
     except Exception as e:
         logging.error(f"Error in base_tts: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
