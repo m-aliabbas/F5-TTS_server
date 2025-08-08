@@ -35,7 +35,7 @@ app.add_middleware(
     allow_headers=["*"],  # Allows all headers
 )
 
-device = "cuda:0" if torch.cuda.is_available() else "cpu"
+device = "cuda" if torch.cuda.is_available() else "cpu"
 
 # Initialize F5-TTS model with English settings
 model = F5TTS(
@@ -100,13 +100,13 @@ async def startup_event():
     # await synthesize_speech(test_text, voice)
 
 @app.get("/base_tts/")
-async def base_tts(text: str, speed: Optional[float] = 1.0):
+async def base_tts(text: str, speed: Optional[float] = 1.0,voice_id='aus_male1122'):
     """
     Perform text-to-speech conversion using only the base speaker.
     """
     try:
         # Use the default English voice
-        return await synthesize_speech(text=text, voice="eng_gb", speed=speed)
+        return await synthesize_speech(text=text, voice=voice_id, speed=speed)
     except Exception as e:
         logging.error(f"Error in base_tts: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
@@ -267,7 +267,8 @@ async def synthesize_speech(
             # Transcribe the short clip
             # ref_text = model.transcribe(temp_short_ref)
             # ref_text = "ٹیکنو کے فونز سستے اور اچھے ہوتے پیں"
-            ref_text = "what you do with that information afterwards this is why i've created this grammar examination study guide i cannot. "
+            # ref_text = "what you do with that information afterwards this is why i've created this grammar examination study guide i cannot. "
+            ref_text = " This came out in 1979. It is a gritty dystopian action film set in a lawless post-apocalyptic Australia. It follows a highway patrolman seeking justice after his family is attacked by a violent gang."
             # ref_text = model.transcribe(temp_short_ref)
             logging.info(f'Reference text transcribed from first 14s: {ref_text}')
             
